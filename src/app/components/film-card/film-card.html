@@ -1,0 +1,15 @@
+<li class="film-card" (click)="goToDetails()">
+  <img [src]="film().posterUrl" [alt]="film().title" class="film-img" />
+  <div class="film-content">
+    <h3 class="film-title">{{ film().title }}</h3>
+    <p>⭐ {{ film().rating }} • {{ film().year }} • {{ film().genre }}</p>
+  </div>
+  <button
+    class="film-button"
+    (click)="onToggleFavorite($event)"
+    (toggleFavorite
+    )="filmService.toggleFavorite($event)"
+  >
+    {{ film().isFavorite ? 'Remove from favorites' : 'Add to favorites' }}
+  </button>
+</li>

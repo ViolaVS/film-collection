@@ -1,1 +1,104 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/theme' as *;
+
+:root {
+  --container-max-width: #{$container-max-width};
+  --container-min-width: #{$container-min-width};
+  --color-bg: #{$bg};
+  --color-bg-soft: #{$bg-soft};
+  --color-surface: #{$surface};
+  --color-panel: #{$panel};
+  --color-border: #{$border};
+  --color-text: #{$text};
+  --color-text-soft: #{$text-soft};
+  --color-accent: #{$accent};
+  --color-accent-strong: #{$accent-strong};
+  --color-white: #{$white};
+  --shadow-soft: #{$shadow-soft};
+  --shadow-card: #{$shadow-card};
+  --radius-lg: #{$radius-lg};
+  --radius-md: #{$radius-md};
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(251, 191, 36, 0.18), transparent 28%),
+    linear-gradient(180deg, $bg 0%, $bg-soft 35%, #020817 100%);
+  color: $text;
+}
+
+body,
+app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+p,
+ul,
+h1,
+h2,
+h3,
+button,
+input {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+  width: min(100%, var(--container-max-width));
+  min-width: var(--container-min-width);
+  padding-inline: 1.25rem;
+  margin: 0 auto;
+}
+
+.main {
+  flex: 1;
+  padding-bottom: 2rem;
+}
+
+.catalog-empty {
+  margin-bottom: 1.25rem;
+  color: $text-soft;
+  text-align: center;
+  font-size: 1.05rem;
+}

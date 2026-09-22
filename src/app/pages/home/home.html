@@ -1,0 +1,21 @@
+<div class="container catalog">
+  <input
+    appAutofocus
+    type="text"
+    placeholder="Search films..."
+    class="catalog-input"
+    [value]="filmService.search()"
+    (input)="filmService.search.set(searchInput.value)"
+    #searchInput
+  />
+  @if (filmService.filteredFilms().length === 0) {
+    <p class="catalog-empty">No films found.</p>
+  }
+  <ul class="catalog-cards">
+    @for (film of filmService.filteredFilms(); track film.id) {
+      <app-film-card [film]="film" (toggleFavorite)="filmService.toggleFavorite($event)">
+        {{ film.title }}
+      </app-film-card>
+    }
+  </ul>
+</div>

@@ -1,0 +1,82 @@
+@use 'src/styles/theme' as *;
+
+.film-card {
+  width: min(100%, 18rem);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  @include panel-surface(linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(17, 24, 39, 0.88)));
+  transition:
+    transform $transition-base,
+    box-shadow $transition-base,
+    border-color $transition-base;
+
+  &-img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    background: rgba(148, 163, 184, 0.2);
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    flex: 1;
+    padding: 1rem 1rem 0.75rem;
+
+    p {
+      @extend %text-muted;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  }
+
+  &-title {
+    min-height: 2.75rem;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    color: $white;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &-button {
+    width: calc(100% - 2rem);
+    margin: 0 auto 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, $accent, $accent-strong);
+    color: #1f2937;
+    font-weight: 700;
+    box-shadow: 0 12px 24px rgba(249, 115, 22, 0.25);
+    transition:
+      transform $transition-fast,
+      filter $transition-fast;
+  }
+
+  @include media-hover {
+    &:hover {
+      transform: translateY(-4px);
+      border-color: rgba(251, 191, 36, 0.38);
+      box-shadow: 0 26px 40px rgba(2, 6, 23, 0.5);
+      cursor: pointer;
+    }
+  }
+
+  @include media-hover {
+    &-button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+  }
+
+  @media (max-width: 560px) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,14 @@
+@if (film(); as currentFilm) {
+  <div class="details">
+    <img [src]="currentFilm.posterUrl" [alt]="currentFilm.title" class="details-img" />
+    <div class="details-content">
+      <button routerLink="/" class="details-button">← Go back</button>
+      <h2 class="details-title">{{ currentFilm.title }}</h2>
+      <p class="details-rating">⭐ {{ currentFilm.rating }}</p>
+      <p><span class="details-subtitle">Release year:</span> {{ currentFilm.year }}</p>
+      <p><span class="details-subtitle">Genre:</span> {{ currentFilm.genre }}</p>
+      <p><span class="details-subtitle">Duration:</span> {{ currentFilm.duration | duration }}</p>
+      <p class="details-text">{{ currentFilm.description }}</p>
+    </div>
+  </div>
+}

@@ -1,0 +1,52 @@
+$container-max-width: 1200px;
+$container-min-width: 320px;
+
+$bg: #070b14;
+$bg-soft: #0f172a;
+$surface: rgba(15, 23, 42, 0.72);
+$surface-strong: rgba(17, 24, 39, 0.88);
+$panel: rgba(30, 41, 59, 0.72);
+$border: rgba(148, 163, 184, 0.18);
+$text: #e5eefb;
+$text-soft: #b7c7dc;
+$accent: #fbbf24;
+$accent-strong: #f97316;
+$accent-soft: rgba(251, 191, 36, 0.14);
+$white: #ffffff;
+$shadow-soft: 0 22px 50px rgba(15, 23, 42, 0.45);
+$shadow-card: 0 18px 30px rgba(2, 6, 23, 0.38);
+$radius-lg: 22px;
+$radius-md: 14px;
+$transition-fast: 0.2s ease;
+$transition-base: 0.25s ease;
+
+@mixin panel-surface($bg: $surface, $radius: $radius-lg) {
+  border: 1px solid $border;
+  border-radius: $radius;
+  background: $bg;
+  box-shadow: $shadow-card;
+}
+
+@mixin button-accent {
+  width: fit-content;
+  padding: 0.8rem 1.25rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, $accent, $accent-strong);
+  color: #1f2937;
+  font-weight: 700;
+  box-shadow: 0 16px 26px rgba(249, 115, 22, 0.2);
+  transition:
+    transform $transition-fast,
+    filter $transition-fast;
+}
+
+@mixin media-hover {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+%text-muted {
+  color: $text-soft;
+  line-height: 1.7;
+}
